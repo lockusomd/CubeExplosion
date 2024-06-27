@@ -3,9 +3,8 @@ using UnityEngine;
 public class RaycastClicker : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
-    [SerializeField] private Ray _ray;
-    [SerializeField] private float _radius = 2f;
 
+    private Ray _ray;
     private RaycastHit _hit;
 
     private void Update()
@@ -18,9 +17,9 @@ public class RaycastClicker : MonoBehaviour
             {
                 Transform objectHit = _hit.transform;
 
-                if(objectHit.tag == "DestroyableObject")
+                if(objectHit.TryGetComponent<Cube>(out Cube component))
                 {
-                    objectHit.gameObject.GetComponent<Destroyer>().DestroyPrefab();
+                    component.DestroyObject();
                 }
             }
         }
