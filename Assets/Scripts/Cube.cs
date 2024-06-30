@@ -20,16 +20,30 @@ public class Cube : MonoBehaviour
 
         if (Random.Range(_minPercent, _maxPercent) < _spawnChance)
         {
-            rigidbodies = _spawner.CreateCubes(gameObject.GetComponent<Rigidbody>());
+            rigidbodies = _spawner.CreateCubes(GetComponent<Rigidbody>());
 
             SetColor(rigidbodies);
 
             SetSpawnChance(rigidbodies);
 
-            _exploder.Explode(rigidbodies);
+            _exploder.Explode(rigidbodies, transform.position);
+        }
+        else
+        {
+            GetComponent<SphereCollider>().enabled = true;
+
+            foreach (Collider collider in Physics.OverlapSphere(transform.position, 5))
+            {
+                if(collider.TryGetComponent<Cube>(out Cube component))
+                {
+                    rigidbodies.Add(component.GetComponent<Rigidbody>());
+                }
+            }
+
+            _exploder.Explode(rigidbodies, transform.position, transform.localScale.x);
         }
 
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     public void SetSpawnChance(int spawnChance)

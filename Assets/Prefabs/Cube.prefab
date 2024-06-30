@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 4818565302622677222}
   - component: {fileID: 723411119339797253}
   - component: {fileID: 9124012704655791131}
+  - component: {fileID: -4624205518977650132}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: DestroyableObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,3 +149,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnChance: 100
   _probabilityDivisor: 2
+--- !u!135 &-4624205518977650132
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8710530250219145165}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
